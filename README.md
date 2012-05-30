@@ -24,20 +24,33 @@ into `./build`, patch it with unique guids and initialize the git
 repo:
 
 	alex@LENOWO /n/Projects/coding
-	$ ls -la foo foo/build
-	foo:
-	total 2
-	drwxr-xr-x    6 alex      4096 May 30 11:07 .git
-	drwxr-xr-x    2 alex         0 May 30 11:07 build
-	drwxr-xr-x    2 alex         0 May 30 11:07 inc
-	drwxr-xr-x    2 alex         0 May 30 11:07 src
-
-	foo/build:
-	total 5
-	-rw-r--r--    1 alex      8766 May 30 11:07 foo.vcxproj
-	-rw-r--r--    1 alex       414 May 30 11:07 foo.vcxproj.filters
+	$ find foo
+	foo
+	foo/.git
+	...
+	foo/build
+	foo/build/foo.vcxproj
+	foo/build/foo.vcxproj.filters
+	foo/inc
+	foo/src
 
 Public headers are to go into `inc` and the sources -
-into `src`. Additionally, the project is configured to put all 
-temporary build files into `./build/tmp` and the actual `.lib` - into 
-`./build/out`.
+into `src`. 
+
+Additionally, the project is configured to put all temporary build 
+files into `./build/tmp` and the actual `.lib` - into `./build/out`, 
+sorting them into the platform/config subdirectories as follows:
+
+	alex@LENOWO /n/Projects/coding
+	$ find foo/build -type d
+	...
+	foo/build/out/foo/win32-debug
+	foo/build/out/foo/win32-release
+	foo/build/out/foo/x64-debug
+	foo/build/out/foo/x64-release
+	...
+	foo/build/tmp/foo/win32-debug
+	foo/build/tmp/foo/win32-release
+	foo/build/tmp/foo/x64-debug
+	foo/build/tmp/foo/x64-release
+
