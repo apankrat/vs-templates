@@ -37,7 +37,7 @@ repo:
 	-rw-r--r--    1 alex      8766 May 30 11:07 foo.vcxproj
 	-rw-r--r--    1 alex       414 May 30 11:07 foo.vcxproj.filters
 
-Public headers are to go into `inc\<library name>` and the sources -
+Public headers are to go into `inc` and the sources -
 into `src`. Additionally, the project is configured to put all 
-temporary build files into `./build/tmp` and a final `.lib` into 
+temporary build files into `./build/tmp` and the actual `.lib` - into 
 `./build/out`.
