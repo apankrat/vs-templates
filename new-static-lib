@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+	echo "$0 <project-name>"
+	exit 1
+fi
+
+if [ -d $1 ]; then
+	ech "$1 directory already exists"
+	exit 2
+fi
+
+mkdir $1
+mkdir $1/build
+mkdir $1/src
+mkdir $1/inc
+
+guid=`./uuidgen.exe`
+
+sed -e "s/g-u-i-d/$guid/" < static-lib.vcxproj > $1/build/$1.vcxproj
