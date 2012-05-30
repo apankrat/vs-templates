@@ -13,10 +13,20 @@ if [ -d $1 ]; then
 	exit 2
 fi
 
+#
+#
+#
+echo "creating directories..."
+
 mkdir $1
 mkdir $1/build
 mkdir $1/src
 mkdir $1/inc
+
+#
+#
+#
+echo "copying blank project files..."
 
 p_guid=`$dir/uuidgen.exe`
 i_guid=`$dir/uuidgen.exe`
@@ -30,3 +40,15 @@ sed -e "s/g-u-i-d-1/$i_guid/" \
     -e "s/g-u-i-d-2/$s_guid/" \
     < $dir/static-lib.vcxproj.filters \
     > $1/build/$1.vcxproj.filters
+
+#
+#
+#
+echo "initializing git repo..."
+
+git init $1 -q
+
+#
+#
+#
+echo "done"
