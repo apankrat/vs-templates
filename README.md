@@ -25,7 +25,7 @@ repo:
 
 	alex@LENOWO /n/Projects/coding
 	$ find foo
-	foo
+	...
 	foo/.git
 	...
 	foo/build
