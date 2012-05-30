@@ -15,6 +15,15 @@ mkdir $1/build
 mkdir $1/src
 mkdir $1/inc
 
-guid=`./uuidgen.exe`
+p_guid=`./uuidgen.exe`
+i_guid=`./uuidgen.exe`
+s_guid=`./uuidgen.exe`
 
-sed -e "s/g-u-i-d/$guid/" < static-lib.vcxproj > $1/build/$1.vcxproj
+sed -e "s/g-u-i-d/$p_guid/" \
+    < static-lib.vcxproj \
+    > $1/build/$1.vcxproj
+
+sed -e "s/g-u-i-d-1/$i_guid/" \
+    -e "s/g-u-i-d-2/$s_guid/" \
+    < static-lib.vcxproj.filters \
+    > $1/build/$1.vcxproj.filters
