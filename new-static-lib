@@ -1,7 +1,10 @@
 #!/bin/bash
 
+dir=`pwd`/$0
+dir=${dir%/*}
+
 if [ $# -ne 1 ]; then
-	echo "$0 <project-name>"
+	echo "${0##*/} <project-name>"
 	exit 1
 fi
 
@@ -15,15 +18,15 @@ mkdir $1/build
 mkdir $1/src
 mkdir $1/inc
 
-p_guid=`./uuidgen.exe`
-i_guid=`./uuidgen.exe`
-s_guid=`./uuidgen.exe`
+p_guid=`$dir/uuidgen.exe`
+i_guid=`$dir/uuidgen.exe`
+s_guid=`$dir/uuidgen.exe`
 
 sed -e "s/g-u-i-d/$p_guid/" \
-    < static-lib.vcxproj \
+    < $dir/static-lib.vcxproj \
     > $1/build/$1.vcxproj
 
 sed -e "s/g-u-i-d-1/$i_guid/" \
     -e "s/g-u-i-d-2/$s_guid/" \
-    < static-lib.vcxproj.filters \
+    < $dir/static-lib.vcxproj.filters \
     > $1/build/$1.vcxproj.filters
