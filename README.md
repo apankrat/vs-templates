@@ -6,7 +6,7 @@ against standard library (and not its dll'd form) and includes few
 other tweaks that I got tired of applying for every new project I
 create.
 
-## Usage:
+## Usage
 
 In a [msysgit](http://code.google.com/p/msysgit/) shell on Windows
 navigate to a place where new project's directory is going to be
