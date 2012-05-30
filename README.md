@@ -19,7 +19,7 @@ and run:
 	initializing git repo...
 	done
 
-This will create the following directory structure, copy `.vcxproj
+This will create the following directory structure, copy `.vcxproj`
 into `./build`, patch it with unique guids and initialize the git
 repo:
 
@@ -37,3 +37,7 @@ repo:
 	-rw-r--r--    1 alex      8766 May 30 11:07 foo.vcxproj
 	-rw-r--r--    1 alex       414 May 30 11:07 foo.vcxproj.filters
 
+Public headers are to go into `inc\<library name>` and the sources -
+into `src`. Additionally, the project is configured to put all 
+temporary build files into `./build/tmp` and a final `.lib` into 
+`./build/out`.
