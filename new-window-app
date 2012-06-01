@@ -20,7 +20,6 @@ echo "creating directories..."
 mkdir $1
 mkdir $1/build
 mkdir $1/src
-mkdir $1/inc
 
 #
 #
@@ -28,17 +27,12 @@ mkdir $1/inc
 echo "copying blank project files..."
 
 p_guid=`$dir/uuidgen.exe`
-i_guid=`$dir/uuidgen.exe`
-s_guid=`$dir/uuidgen.exe`
 
 sed -e "s/p-guid/$p_guid/" \
-    < $dir/static-lib.vcxproj \
+    < $dir/window-app.vcxproj \
     > $1/build/$1.vcxproj
 
-sed -e "s/i-guid/$i_guid/" \
-    -e "s/s-guid/$s_guid/" \
-    < $dir/static-lib.vcxproj.filters \
-    > $1/build/$1.vcxproj.filters
+cp $dir/main.cpp $1/src
 
 #
 #

@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{g-u-i-d}</ProjectGuid>
+    <ProjectGuid>{p-guid}</ProjectGuid>
     <Keyword>win32Proj</Keyword>
     <RootNamespace>staticlib</RootNamespace>
   </PropertyGroup>
