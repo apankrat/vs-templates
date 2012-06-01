@@ -45,8 +45,11 @@ sed -e "s/i-guid/$i_guid/" \
 #
 echo "initializing git repo..."
 
-git init $1 -q
-cp $dir/.gitignore $1
+pushd $1 > /dev/null
+git init -q
+cp $dir/.gitignore .
+git add .gitignore build/* >/dev/null 2>&1
+popd > /dev/null
 
 #
 #
